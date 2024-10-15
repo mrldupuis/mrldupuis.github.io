@@ -4,14 +4,13 @@ title: submenus
 nav: true
 nav_order: 8
 dropdown: true
-published: false
 children:
+  - title: about
+    permalink: /about/
+  - title: divider
   - title: publications
     permalink: /publications/
   - title: divider
-  - title: projects
-    permalink: /projects/
-  - title: divider
-  - title: blog
-    permalink: /blog/
+  - title: repositories
+    permalink: /repositories/
 ---
