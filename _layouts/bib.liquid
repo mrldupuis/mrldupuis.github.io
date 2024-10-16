@@ -202,14 +202,21 @@
         {% if entry.html contains '://' %}
           <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
         {% else %}
-          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
+          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">JOURNAL</a>
         {% endif %}
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
           <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
         {% else %}
-          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
+          <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PAPER</a>
+        {% endif %}
+      {% endif %}
+      {% if entry.poster %}
+        {% if entry.poster contains '://' %}
+          <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button">POSTER</a>
+        {% else %}
+          <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">POSTER</a>
         {% endif %}
       {% endif %}
       {% if entry.supp %}
