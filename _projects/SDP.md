@@ -4,7 +4,7 @@ title: SDP
 description: Structural Design Package
 img: assets/img/sdp_icon.png
 importance: 2
-category: fun
+category: software development
 published: true
 ---
 

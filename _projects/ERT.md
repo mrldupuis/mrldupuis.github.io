@@ -4,7 +4,7 @@ title: ERT
 description: Exploratory data Record analysis Toolbox
 img: assets/img/ert_icon.PNG
 importance: 1
-category: fun
+category: software development
 published: true
 ---
 
