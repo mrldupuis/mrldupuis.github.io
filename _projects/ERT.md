@@ -10,11 +10,14 @@ published: true
 
 # Time-History Processing Software for Engineering Data
 
+- [Overview Video Here](https://www.linkedin.com/posts/michael-dupuis-99539662_i-am-happy-read-nervous-to-announce-the-activity-7226640700677722112-9bEV?utm_source=share&utm_medium=member_desktop)
+- [User Sign-Up Here](https://docs.google.com/forms/d/e/1FAIpQLSezP5iw_2uH6-yKaOSSGeCw4Gh5Wlc_7YPv5tp7J9Kos21QfA/viewform)
+
 This software addresses a common challenge in engineering: handling large, complex time-history datasets from various sources (e.g., earthquake records, structural responses). It’s designed to streamline data extraction, processing, and visualization in a user-friendly way, filling the gaps left by existing commercial tools.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/ERT/Picture1.png" title="ERT Image 1" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/ERT/Screenshot_01.PNG" title="ERT Image 1" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -45,7 +48,7 @@ This software addresses a common challenge in engineering: handling large, compl
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/ERT/Picture3.png" title="ERT Image 3" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/ERT/Screenshot_03.png" title="ERT Image 3" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -63,7 +66,7 @@ This software makes it easy to handle irregular and large time-history data file
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/ERT/Picture4.png" title="ERT Image 4" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/ERT/Screenshot_04.png" title="ERT Image 4" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
