@@ -15,10 +15,10 @@ The RS 3D time series data exhibits significant low-frequency drift, both at the
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/html/glenmore_dam20230825/TS-Free Field.html" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/html/glenmoredam_20230825/TS-Free Field.html" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/html/glenmore_dam20230825/TS-Dam Crest.html" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/html/glenmoredam_20230825/TS-Dam Crest.html" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -29,11 +29,13 @@ MEM-based power spectral density estimates were also examined for recordings at 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/html/glenmore_dam20230825/MEM-Free Field.html" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/html/glenmoredam_20230825/MEM-Free Field.html" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/html/glenmore_dam20230825/MEM-Dam Crest.html" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/html/glenmoredam_20230825/MEM-Dam Crest.html" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
+</div>
+<div class="caption">
     Power spectral density estimates computed via the maximum entropy method for the velocity time series recorded by the Raspberry Shake instrument at the free field location (left) and the dam crest (right).
 </div>
 

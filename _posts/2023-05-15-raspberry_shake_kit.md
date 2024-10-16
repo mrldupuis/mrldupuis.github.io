@@ -9,15 +9,12 @@ thumbnail: assets/img/PXL_20230825_134627688.jpg
 published: true
 ---
 
-I've assembled a mobile testing kit using a Raspberry Shake 3D (RS 3D) velocimeter that I plan to use in the field. I hope to collect some interesting time series data with this to analyze.
+I've assembled a mobile testing kit using a [Raspberry Shake 3D](https://shop.raspberryshake.org/product/turnkey-iot-home-earth-monitor-rs-3d/) (RS 3D) velocimeter that I plan to use in the field. I hope to collect some interesting time series data with this to analyze.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/raspberry_shake/PXL_20241016_211352540.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
-    <!-- <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/raspberry_shake/PXL_20241016_211459107.jpg" class="img-fluid rounded z-depth-1" %}
-    </div> -->
 </div>
 <div class="caption">
     The complete contents of the mobile testing kit I've assembled. The foam is compressible so the laptop (left) is able to fit in the kit is as well.
@@ -57,10 +54,10 @@ An optional GPS antenna can also be purchased to provide improved timing in the 
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/raspberry_shake/PXL_20241016_211513851.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
-    <!-- <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/raspberry_shake/PXL_20241016_211517613.jpg" class="img-fluid rounded z-depth-1" %}
-    </div> -->
+    </div>
 </div>
 <div class="caption">
-    Zoomed in photos of the RS 3D. Note that the orientation of the channels (North, East, and Vertical) for the RS 3D are only identified by a small arrow labelled as 'North' on the circuit board.
+    Zoomed in photos of the RS 3D and antenna. Note that the orientation of the channels (North, East, and Vertical) for the RS 3D are only identified by a small arrow labelled as 'North' on the circuit board.
 </div>

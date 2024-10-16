@@ -15,9 +15,6 @@ I deployed the velocitmeter for approximately twenty minutes of data acquisition
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/PXL_20230825_140821473.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
-    <!-- <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/7.jpg" class="img-fluid rounded z-depth-1" %}
-    </div> -->
 </div>
 <div class="caption">
     View from downstream of the gated overflow spillway, piers, and supported walkway of the Glenmore Dam.
@@ -40,6 +37,8 @@ At each location, data collection with the RS velocimeter followed the following
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/PXL_20230825_140818187.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
+</div>
+<div class="caption">
     Experimental setup of the Raspberry Shake 3D, portable power supply, laptop, and GPS antenna at Glenmore Dam: above the dam crest (left) and downstream free field (right).
 </div>
 
