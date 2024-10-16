@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Raspberry Shake Field Kit
-date: 2015-05-15 21:01:00
+date: 2023-05-15 21:01:00
 description: I purchased a low cost velocimeter and made a field kit
-tags: formatting images
-categories: sample-posts
+tags: vibrations RS3D
+categories: instrumentation
 thumbnail: assets/img/PXL_20230825_134627688.jpg
 published: true
 ---

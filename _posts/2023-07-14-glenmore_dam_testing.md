@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Glenmore Dam Testing
-date: 2023-08-25 21:01:00
+date: 2023-07-12 21:01:00
 description: Recorded vibration data from a large dam with the Raspberry Shake
-tags: formatting images
-categories: sample-posts
-thumbnail: assets/img/9.jpg
+tags: vibrations RS3D dams
+categories: instrumentation
+thumbnail: assets/img/PXL_20230825_140821473.jpg
 published: true
 ---
 

@@ -3,9 +3,9 @@ layout: post
 title: Glenmore Dam Vibration Analysis
 date: 2023-08-25 21:01:00
 description: Analyzed the raspberry shake data from Glenmore Dam
-tags: formatting images
-categories: sample-posts
-thumbnail: assets/html/MEM-Vertical.png
+tags: vibrations RS3D dams ERT
+categories: signal-processing
+thumbnail: assets/html/glenmoredam_20230825/MEM-Vertical.png
 published: true
 ---
 
