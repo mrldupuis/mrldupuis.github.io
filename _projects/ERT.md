@@ -48,7 +48,7 @@ This software addresses a common challenge in engineering: handling large, compl
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/ERT/Screenshot_03.png" title="ERT Image 3" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/ERT/Screenshot_03.PNG" title="ERT Image 3" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -66,7 +66,7 @@ This software makes it easy to handle irregular and large time-history data file
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/ERT/Screenshot_04.png" title="ERT Image 4" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/ERT/Screenshot_04.PNG" title="ERT Image 4" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
