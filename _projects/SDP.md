@@ -61,7 +61,7 @@ The application compiles design information into a ready-to-review PDF report, w
 
 ## Key Features
 
-- **Free and Open Source**: Made for educational purposes, SDP is free to download and use.
+- **Free and Educational**: Made for educational purposes, SDP is free to download and use.
 - **Flexible Design Workflow**: Build projects through GUI or custom Python scripts.
 - **Accurate Reporting**: PDF reports with visual summaries and calculation details.
 
