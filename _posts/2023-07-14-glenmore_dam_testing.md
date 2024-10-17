@@ -9,6 +9,8 @@ thumbnail: assets/img/PXL_20230825_140821473.jpg
 published: true
 ---
 
+I went out at the crack of dawn during a long summer day hoping to avoid looking suspicious while there were too many people around.
+
 I deployed the velocitmeter for approximately twenty minutes of data acquisition at two locations: (i) a public pathway above dam crest and (ii) at a free field approximately 100 m downstream of the dam. Data was collected on all three instrument channels for a duration of 20 minutes at each location during ambient operating conditions with approximately 1.5 cms of release through the low-level outlet (there is no power generation at Glenmore Dam). It was observed that the reservoir was at full pool and no irregular activities or events were noted which would have perturbed the ambient data collected at either location. 
 
 <div class="row mt-3">
@@ -42,4 +44,6 @@ At each location, data collection with the RS velocimeter followed the following
     Experimental setup of the Raspberry Shake 3D, portable power supply, laptop, and GPS antenna at Glenmore Dam: above the dam crest (left) and downstream free field (right).
 </div>
 
-I hope to analyze this data to see if I can pick up any harmonics (although their is no power generation) or structural resonances.
+I hope to analyze this data to see if I can pick up any machinery harmonics (although there is no power generation at Glenmore Dam) or structural resonances of the gravity monolith or piers.
+
+Mostly I'm glab nobody called the police on me...

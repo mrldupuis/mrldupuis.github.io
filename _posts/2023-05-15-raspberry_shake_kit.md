@@ -9,7 +9,9 @@ thumbnail: assets/img/PXL_20230825_134627688.jpg
 published: true
 ---
 
-I've assembled a mobile testing kit using a [Raspberry Shake 3D](https://shop.raspberryshake.org/product/turnkey-iot-home-earth-monitor-rs-3d/) (RS 3D) velocimeter that I plan to use in the field. I hope to collect some interesting time series data with this to analyze.
+I've assembled a mobile testing kit using a [Raspberry Shake 3D](https://shop.raspberryshake.org/product/turnkey-iot-home-earth-monitor-rs-3d/) (RS 3D) velocimeter that I plan to use in the field. I hope to collect some interesting time series data with this to analyze. 
+
+For the weatherproof case, I decided on a Pelican 1520 Camera Case With Foam (Yellow). I wouldn't go any smaller than this (its quite tight in there), unfortunately the cost for larger cases increases sharply.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
