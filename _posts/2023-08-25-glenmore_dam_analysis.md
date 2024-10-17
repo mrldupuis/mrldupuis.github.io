@@ -17,14 +17,14 @@ The RS 3D time series data exhibits significant low-frequency drift, both at the
 
 
 <div class="l-page">
-    <iframe src="{{ '/assets/html/glenmoredam_20230825/TS-Free Field.html' | relative_url }}" frameborder='0' scrolling='no' height="100vh" width="100%" style="border: 1px dashed grey;"></iframe>
+    <iframe src="{{ '/assets/html/glenmoredam_20230825/TS-Free Field.html' | relative_url }}" frameborder='0' scrolling='no' height="500px" width="100%" style="border: 0px dashed grey;"></iframe>
 </div>
 <div class="caption">
     Example segment of velocity time series at the free field location.
 </div>
 
 <div class="l-page">
-    <iframe src="{{ '/assets/html/glenmoredam_20230825/TS-Dam Crest.html' | relative_url }}" frameborder='0' scrolling='no' style="border: 1px dashed grey; width: 100%; height: 100vh; overflow: hidden;"></iframe>
+    <iframe src="{{ '/assets/html/glenmoredam_20230825/TS-Dam Crest.html' | relative_url }}" frameborder='0' scrolling='no' height="500px" width="100%" style="border: 0px dashed grey;"></iframe>
 </div>
 <div class="caption">
     Example segment of velocity time series at the dam crest.
@@ -34,14 +34,14 @@ The RS 3D time series data exhibits significant low-frequency drift, both at the
 MEM-based power spectral density estimates were also examined for recordings at both the free field location and the dam crest. Spectral peaks apparent in certain directions of the dam crest response support the presence of multiple resonant frequencies. Attributing these resonances to specific component behavior is complicated by the multiple components which contribute to the response at this location, including the dam body, piers, and elevated arch bridge superstructure.
 
 <div class="l-page">
-    <iframe src="{{ '/assets/html/glenmoredam_20230825/MEM-Free Field.html' | relative_url }}" frameborder='0' scrolling='no' height="100vh" width="100%" style="border: 0px dashed grey;"></iframe>
+    <iframe src="{{ '/assets/html/glenmoredam_20230825/MEM-Free Field.html' | relative_url }}" frameborder='0' scrolling='no' height="500px" width="100%" style="border: 1px dashed grey;"></iframe>
 </div>
 <div class="caption">
     Power spectral density estimates computed via the maximum entropy method at the free field location.
 </div>
 
 <div class="l-page">
-    <iframe src="{{ '/assets/html/glenmoredam_20230825/MEM-Dam Crest.html' | relative_url }}" frameborder='0' scrolling='no' style="border: 0px dashed grey; width: 100%; height: 100vh; overflow: hidden;"></iframe>
+    <iframe src="{{ '/assets/html/glenmoredam_20230825/MEM-Dam Crest.html' | relative_url }}" frameborder='0' scrolling='no' height="500px" width="100%" style="border: 1px dashed grey;"></iframe>
 </div>
 <div class="caption">
     Power spectral density estimates computed via the maximum entropy method at the dam crest.
