@@ -5,11 +5,13 @@ date: 2023-08-25 21:01:00
 description: In-Office Verification Testing of a Raspberry Shake
 tags: vibrations RS3D ERT
 categories: signal-processing
-thumbnail: assets/img/raspberry_shake/PXL_20241018_163926598.png
+thumbnail: assets/img/raspberry_shake/PXL_20241018_163926598.jpg
 published: true
 ---
 
-In this experiment, I was curious to see how the Raspberry Shake RS-3D would perform compared to the high-quality Sensequake Larze instruments. The Raspberry Shake is a much more affordable option for vibration monitoring, but I wanted to verify its accuracy and see if it could hold up in real-world conditions. To do this, I set it up in my office, where I could take my best shot at synchronizing the clocks of the two devices. I ran two 5-minute long tests comparing the Raspberry Shake, which can only record at 100Hz, with the Sensequake Larze recording at 100 Hz and then 1200 Hz.
+In this experiment, I was curious to see how the [Raspberry Shake 3D](https://shop.raspberryshake.org/product/turnkey-iot-home-earth-monitor-rs-3d/) would perform compared to the high-quality [Sensequake Larze](https://www.sensequake.com/larze) instruments. The Raspberry Shake is a much more affordable option for vibration monitoring, but I wanted to verify its accuracy and see if it could hold up in real-world conditions. To do this, I set it up in my office, where I could take my best shot at make synchronized recordings while controlling the excitation, which consisted of series of progressively larger amplitude taps of my foot on the floor of my office.
+
+I ran two 5-minute long tests comparing the Raspberry Shake, which can only record at 100Hz, with the Sensequake Larze recording at 100 Hz and then 1200 Hz.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -45,7 +47,7 @@ Next, I wanted to compare the Raspberry Shake’s performance to the Sensequake 
 
 
 <div class="l-page">
-    <iframe src="{{ '/assets/html/rs_verification/out/TS-1-Vertical.html.html' | relative_url }}" frameborder='0' scrolling='no' height="500px" width="100%" style="border: 1px dashed grey;"></iframe>
+    <iframe src="{{ '/assets/html/rs_verification/out/TS-1-Vertical.html' | relative_url }}" frameborder='0' scrolling='no' height="500px" width="100%" style="border: 1px dashed grey;"></iframe>
 </div>
 <div class="caption">
     Comparison of the Raspberry Shake and Sensequake Larze vertical velocity time series sampled at 100 Hz.
@@ -58,7 +60,7 @@ Next, I wanted to compare the Raspberry Shake’s performance to the Sensequake 
     Fast fourier spectra comparison of the Raspberry Shake and Sensequake Larze vertical velocity time series sampled at 100 Hz.
 </div>
 
-The Raspberry Shake did a decent job. The time series data, while not perfect, were reasonably accurate. However, there were clear issues, particularly with time synchronization between the different channels of the Raspberry Shake. This was evident from the transient wave trains arriving at slightly different times in each direction, which clearly shouldn't happen. To better illustrate the timing precision of the Raspberry Shake, a second 5-mintue long test was completed with the Sensequake Larze instrument recording at 1200 Hz, as shown in the figures below.
+The Raspberry Shake did a decent job. The time series data, while not perfect, were reasonably accurate. However, there were clear issues, particularly with time synchronization between the different channels of the Raspberry Shake. This was evident from the transient wave trains arriving at slightly different times in each direction, which clearly shouldn't happen. To better illustrate the timing precision of the Raspberry Shake, a second 5-minute long test was completed with the Sensequake Larze instrument recording at 1200 Hz, as shown in the figures below.
 
 <div class="l-page">
     <iframe src="{{ '/assets/html/rs_verification/out/TS-2-Hor. 1.html' | relative_url }}" frameborder='0' scrolling='no' height="500px" width="100%" style="border: 1px dashed grey;"></iframe>
