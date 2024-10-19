@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Raspberry Shake Verification
-date: 2023-08-25 21:01:00
+date: 2024-10-18 21:01:00
 description: In-Office Verification Testing of a Raspberry Shake
 tags: vibrations RS3D ERT
 categories: signal-processing
