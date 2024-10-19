@@ -9,7 +9,7 @@ thumbnail: assets/img/PXL_20240304_191605795.jpg
 published: true
 ---
 
-VERY excited to start doing some in-office validation and verification of these instruments and to put them through their paces. 
+VERY excited to start doing some in-office testing with these instruments which [Geosyntec](https://geosyntec.com/) has purchased from the nice folks at [Sensequake](https://www.sensequake.com/) in Montreal, Canada. 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -19,6 +19,8 @@ VERY excited to start doing some in-office validation and verification of these 
 <div class="caption">
     The new arrivals! 
 </div>
+
+With their high precision and low levels of self-noise, these will be excellent instruments for ambient vibration testing of dams.
 
 
 
