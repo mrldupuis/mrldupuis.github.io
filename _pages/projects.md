@@ -3,7 +3,7 @@ layout: page
 title: projects
 permalink: /projects/
 description: A selection of interesting projects related to dams, earthquakes, or vibrations.
-nav: false
+nav: true
 nav_order: 3
 display_categories: [presentations, software development]
 horizontal: false
