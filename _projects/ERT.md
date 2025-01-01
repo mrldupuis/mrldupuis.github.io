@@ -5,7 +5,7 @@ description: Exploratory data Record analysis Toolbox
 img: assets/img/ert_icon.PNG
 importance: 1
 category: software development
-published: false
+published: true
 ---
 
 # Time-History Processing Software for Engineering Data
