@@ -106,7 +106,6 @@ SDP is available for educational use, so feel free to try it out and provide fee
 
 ### Resources
 
-- [American Concrete Institute](https://www.concrete.org)
 - [Download LaTeX](https://miktex.org)
 
 For more details, check out the full documentation or contact us directly.
