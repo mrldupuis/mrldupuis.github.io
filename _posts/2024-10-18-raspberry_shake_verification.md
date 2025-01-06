@@ -83,16 +83,4 @@ The Raspberry Shake did a decent job. The time series data, while not perfect, w
     Velocity time series for the vertical component of the Raspberry Shake (100Hz) and the Sensequake Larze, recording at a high sampling rate of 1200 Hz.
 </div>
 
-<style>
-    .interactive-icons {
-        font-size: 1.5em; /* Adjust size to make icons larger */
-    }
-
-    iframe {
-        border-width: 0.1px; /* Thinner border */
-        border-color: lightgrey;
-        border-style: dashed; /* Optional: set to 'none' to remove */
-    }
-</style>
-
 Despite these problems, the Raspberry Shake’s FFT results were similar enough to the Larze to suggest that it could be useful for less demanding applications. It’s not quite ready to replace higher-end instruments like the Larze, but for its price, it still has potential.
