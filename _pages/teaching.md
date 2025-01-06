@@ -1,13 +1,18 @@
 ---
 layout: page
-permalink: /teaching/
-title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+permalink: /analysis/
+title: analysis
+description: Exploratory data analysis tool for your data files
 nav: true
 nav_order: 6
-published: false
+published: true
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+<h1>Interactive Data Analysis Tool</h1>
+<input type="file" id="fileInput" accept=".csv,.txt" />
+<div id="filterSection"></div>
+<div id="plot"></div>
 
-Organize your courses by years, topics, or universities, however you like!
+<script src="https://cdn.plotly.com/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"></script>
+<script src="/assets/js/data_analysis.js"></script>
