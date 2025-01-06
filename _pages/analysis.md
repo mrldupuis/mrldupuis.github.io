@@ -3,7 +3,7 @@ layout: page
 permalink: /analysis/
 title: analysis
 description: exploratory data analysis.
-nav: true
+nav: false
 nav_order: 5
 ---
 
