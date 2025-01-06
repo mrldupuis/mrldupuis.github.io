@@ -3,8 +3,9 @@ layout: page
 permalink: /analysis/
 title: analysis
 description: exploratory data analysis.
-nav: false
+nav: ture
 nav_order: 5
+published: false
 ---
 
 <h1>Interactive Data Analysis Tool</h1>
