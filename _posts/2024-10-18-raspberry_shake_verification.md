@@ -6,7 +6,7 @@ description: In-Office Verification Testing of a Raspberry Shake
 tags: vibrations RS3D ERT
 categories: signal-processing
 thumbnail: assets/img/raspberry_shake/PXL_20241018_163926598.jpg
-published: true
+published: false
 ---
 
 In this experiment, I was curious to see how the [Raspberry Shake 3D](https://shop.raspberryshake.org/product/turnkey-iot-home-earth-monitor-rs-3d/) would perform compared to the high-quality [Sensequake Larze](https://www.sensequake.com/larze) instruments. The Raspberry Shake is a much more affordable option for vibration monitoring, but I wanted to verify its accuracy and see if it could hold up in real-world conditions. To do this, I set it up in my office, where I could take my best shot at make synchronized recordings while controlling the excitation, which consisted of series of progressively larger amplitude taps of my foot on the floor of my office.
