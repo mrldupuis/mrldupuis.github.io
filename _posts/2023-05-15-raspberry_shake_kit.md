@@ -13,7 +13,6 @@ I've assembled a mobile testing kit using a [Raspberry Shake 3D](https://shop.ra
 
 For the weatherproof case, I decided on a Pelican 1520 Camera Case With Foam (Yellow). I wouldn't go any smaller than this (its quite tight in there), unfortunately the cost for larger cases increases sharply.
 
-<!-- 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -65,5 +64,3 @@ An optional GPS antenna can also be purchased to provide improved timing in the 
 <div class="caption">
     Zoomed in photos of the RS 3D and antenna. Note that the orientation of the channels (North, East, and Vertical) for the RS 3D are only identified by a small arrow labelled as 'North' on the circuit board.
 </div>
-
--->
