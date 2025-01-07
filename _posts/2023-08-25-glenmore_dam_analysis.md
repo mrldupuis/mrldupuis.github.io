@@ -6,7 +6,7 @@ description: Analyzed the Raspberry Shake data from Glenmore Dam
 tags: vibrations RS3D dams ERT
 categories: signal-processing
 thumbnail: assets/html/glenmoredam_20230825/MEM-Vertical.png
-published: false
+published: true
 ---
 
 Data acquisition was conducted at two locations: (i) free field approximately 100 m downstream of the overflow spillway, i.e., “Free Field”; and (ii) from a public pathway above the dam crest approximately midway along the length of the overflow spillway, i.e., “Dam Crest”.
