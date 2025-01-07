@@ -15,4 +15,5 @@ published: true
 
 <script src="https://cdn.plotly.com/plotly-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"></script>
+<script src="/assets/js/data_analysis.js"></script>
 
