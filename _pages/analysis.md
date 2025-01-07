@@ -8,7 +8,6 @@ nav_order: 6
 published: true
 ---
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -98,18 +97,26 @@ published: true
                 const sliderDiv = document.createElement('div');
                 const label = document.createElement('label');
                 label.textContent = `Filter ${col}:`;
-                const slider = document.createElement('input');
-                slider.type = 'range';
-                slider.min = Math.min(...data.map(row => row[col]));
-                slider.max = Math.max(...data.map(row => row[col]));
-                slider.step = 0.1;
-                slider.value = slider.min;
-                slider.id = `filter-${col}`;
+
+                const minInput = document.createElement('input');
+                minInput.type = 'number';
+                minInput.value = Math.min(...data.map(row => row[col]));
+                minInput.id = `filter-${col}-min`;
+                
+                const maxInput = document.createElement('input');
+                maxInput.type = 'number';
+                maxInput.value = Math.max(...data.map(row => row[col]));
+                maxInput.id = `filter-${col}-max`;
+
                 sliderDiv.appendChild(label);
-                sliderDiv.appendChild(slider);
+                sliderDiv.appendChild(document.createTextNode(' Min: '));
+                sliderDiv.appendChild(minInput);
+                sliderDiv.appendChild(document.createTextNode(' Max: '));
+                sliderDiv.appendChild(maxInput);
                 controlsDiv.appendChild(sliderDiv);
 
-                slider.addEventListener('input', () => renderPlot(filterData(data, numericalCols, categoricalCols), xSelect.value, ySelect.value, colorSelect.value));
+                minInput.addEventListener('input', () => renderPlot(filterData(data, numericalCols, categoricalCols), xSelect.value, ySelect.value, colorSelect.value));
+                maxInput.addEventListener('input', () => renderPlot(filterData(data, numericalCols, categoricalCols), xSelect.value, ySelect.value, colorSelect.value));
             });
 
             categoricalCols.forEach(col => {
@@ -144,8 +151,9 @@ published: true
         function filterData(data, numericalCols, categoricalCols) {
             return data.filter(row => {
                 return numericalCols.every(col => {
-                    const slider = document.getElementById(`filter-${col}`);
-                    return row[col] >= slider.min && row[col] <= slider.value;
+                    const minInput = document.getElementById(`filter-${col}-min`);
+                    const maxInput = document.getElementById(`filter-${col}-max`);
+                    return row[col] >= parseFloat(minInput.value) && row[col] <= parseFloat(maxInput.value);
                 }) && categoricalCols.every(col => {
                     const checkboxes = [...document.querySelectorAll(`#filter-${col}-` + row[col])];
                     return checkboxes.every(checkbox => checkbox.checked);
