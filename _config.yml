@@ -301,9 +301,9 @@ jekyll-archives:
     tag: archive-tag
     category: archive-category
   permalinks:
-    year: "/blog/:year/"
-    tag: "/blog/tag/:name/"
-    category: "/blog/category/:name/"
+    year: "/articles/:year/"
+    tag: "/articles/tag/:name/"
+    category: "/articles/category/:name/"
 
 display_tags: ["vibrations", "RS3D", "dams", "ERT"] # these tags will be displayed on the front page of your blog
 display_categories: ["instrumentation", "signal-processing"] # these categories will be displayed on the front page of your blog
