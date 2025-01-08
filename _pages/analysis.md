@@ -197,6 +197,14 @@ published: true
           URL.revokeObjectURL(url)
         })
 
+        function ensurePlotly(callback) {
+          if (typeof Plotly !== "undefined") {
+            callback();
+          } else {
+            setTimeout(() => ensurePlotly(callback), 100);
+          }
+        }
+
         function setupControls(data, numericalCols, categoricalCols) {
           const controlsDiv = document.getElementById("controls")
           controlsDiv.innerHTML = ""
@@ -378,8 +386,9 @@ published: true
             autosize: true,
             height: 800, // Maintain aspect ratio
           }
-
-          Plotly.newPlot("plot", [trace], layout)
+          ensurePlotly(() => {
+            Plotly.newPlot("plot", [trace], layout)
+          });
         }
 
         function renderDataPreview(data) {
