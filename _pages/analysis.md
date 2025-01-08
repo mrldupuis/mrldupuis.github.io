@@ -2,7 +2,7 @@
 layout: page
 permalink: /analysis/
 title: analysis
-description: Exploratory data analysis tool for your data files
+description: An exploratory data analysis tool for your data files. Give it a try with a csv flatfile!
 nav: true
 nav_order: 6
 published: true
@@ -90,7 +90,6 @@ published: true
     </style>
   </head>
   <body>
-    <h1>Interactive Data Analysis Tool</h1>
     <input
       type="file"
       id="fileInput"
