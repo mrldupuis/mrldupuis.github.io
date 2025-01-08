@@ -12,7 +12,6 @@ published: true
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Interactive Data Analysis Tool</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js" defer></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"
