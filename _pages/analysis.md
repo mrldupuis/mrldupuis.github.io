@@ -12,11 +12,11 @@ published: true
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.plot.ly/plotly-latest.min.js" defer></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"
       defer
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -37,7 +37,7 @@ published: true
       .filter-group {
         margin: 10px;
         display: flex;
-        align-items: center;
+        flex-direction: column;
       }
       input[type="file"],
       select,
@@ -62,7 +62,7 @@ published: true
       }
       #plot {
         margin-top: 20px;
-        height: 800px; /* Ensures 1:1 aspect ratio with typical screen widths */
+        height: 800px;
       }
       #dataPreview {
         margin-top: 20px;
@@ -87,6 +87,21 @@ published: true
         padding: 8px;
         text-align: left;
       }
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+      }
+      .legend-color {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+      }
     </style>
   </head>
   <body>
@@ -99,8 +114,9 @@ published: true
     <div id="controls"></div>
     <button id="resetButton">Reset Filters</button>
     <button id="downloadButton">Download Filtered Data</button>
-    <div id="plot"></div>
+    <canvas id="plot" width="800" height="400"></canvas>
     <div id="dataPreview"></div>
+    <div id="legend" class="legend"></div>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -108,6 +124,9 @@ published: true
         const resetButton = document.getElementById("resetButton")
         const downloadButton = document.getElementById("downloadButton")
         const dataPreview = document.getElementById("dataPreview")
+        const plotCanvas = document.getElementById("plot")
+        const legendDiv = document.getElementById("legend")
+        let chartInstance = null
         let originalData = []
         let filteredData = []
 
@@ -159,8 +178,6 @@ published: true
 
         resetButton.addEventListener("click", () => {
           filteredData = [...originalData]
-
-          // Reset controls to their initial state
           document.querySelectorAll(".filter-group").forEach((group) => {
             const inputs = group.querySelectorAll("input[type='number']")
             if (inputs.length === 2) {
@@ -180,7 +197,6 @@ published: true
               })
             }
           })
-
           updatePlot()
         })
 
@@ -195,14 +211,6 @@ published: true
           URL.revokeObjectURL(url)
         })
 
-        function ensurePlotly(callback) {
-          if (typeof Plotly !== "undefined") {
-            callback();
-          } else {
-            setTimeout(() => ensurePlotly(callback), 100);
-          }
-        }
-
         function setupControls(data, numericalCols, categoricalCols) {
           const controlsDiv = document.getElementById("controls")
           controlsDiv.innerHTML = ""
@@ -215,6 +223,14 @@ published: true
           ySelect.id = "yAxis"
           ySelect.setAttribute("aria-label", "Select Y-axis")
 
+          const colorSelect = document.createElement("select")
+          colorSelect.id = "colorBy"
+          colorSelect.setAttribute("aria-label", "Select Color By")
+          const noneOption = document.createElement("option")
+          noneOption.value = "None"
+          noneOption.textContent = "None"
+          colorSelect.appendChild(noneOption)
+
           numericalCols.forEach((col) => {
             const optionX = document.createElement("option")
             optionX.value = col
@@ -225,38 +241,17 @@ published: true
             optionY.value = col
             optionY.textContent = col
             ySelect.appendChild(optionY)
-          })
 
-          xSelect.value = numericalCols[0] || ""
-          ySelect.value = numericalCols[1] || numericalCols[0] || ""
+            const optionColor = document.createElement("option")
+            optionColor.value = col
+            optionColor.textContent = col
+            colorSelect.appendChild(optionColor)
 
-          const colorSelect = document.createElement("select")
-          colorSelect.id = "colorBy"
-          colorSelect.setAttribute("aria-label", "Select Color By")
-          const noneOption = document.createElement("option")
-          noneOption.value = "None"
-          noneOption.textContent = "None"
-          colorSelect.appendChild(noneOption)
-
-          categoricalCols.concat(numericalCols).forEach((col) => {
-            const option = document.createElement("option")
-            option.value = col
-            option.textContent = col
-            colorSelect.appendChild(option)
-          })
-
-          controlsDiv.appendChild(document.createTextNode("X-axis: "))
-          controlsDiv.appendChild(xSelect)
-          controlsDiv.appendChild(document.createTextNode(" Y-axis: "))
-          controlsDiv.appendChild(ySelect)
-          controlsDiv.appendChild(document.createTextNode(" Color by: "))
-          controlsDiv.appendChild(colorSelect)
-
-          numericalCols.forEach((col) => {
-            const sliderDiv = document.createElement("div")
-            sliderDiv.className = "filter-group"
+            // Add filter sliders
+            const filterDiv = document.createElement("div")
+            filterDiv.className = "filter-group"
             const label = document.createElement("label")
-            label.innerHTML = `<b>Filter ${col}:</b>`
+            label.textContent = `Filter ${col}`
 
             const minInput = document.createElement("input")
             minInput.type = "number"
@@ -272,41 +267,53 @@ published: true
             )
             maxInput.id = `filter-${col}-max`
 
-            sliderDiv.appendChild(label)
-            sliderDiv.appendChild(document.createTextNode(" Min: "))
-            sliderDiv.appendChild(minInput)
-            sliderDiv.appendChild(document.createTextNode(" Max: "))
-            sliderDiv.appendChild(maxInput)
-            controlsDiv.appendChild(sliderDiv)
+            filterDiv.appendChild(label)
+            filterDiv.appendChild(document.createTextNode(" Min: "))
+            filterDiv.appendChild(minInput)
+            filterDiv.appendChild(document.createTextNode(" Max: "))
+            filterDiv.appendChild(maxInput)
+            controlsDiv.appendChild(filterDiv)
 
             minInput.addEventListener("input", updateFilteredData)
             maxInput.addEventListener("input", updateFilteredData)
           })
 
           categoricalCols.forEach((col) => {
-            const checkboxDiv = document.createElement("div")
-            checkboxDiv.className = "filter-group"
-            const label = document.createElement("label")
-            label.textContent = `Filter ${col}:`
-            checkboxDiv.appendChild(label)
-            const uniqueValues = [...new Set(data.map((row) => row[col]))]
+            const optionColor = document.createElement("option")
+            optionColor.value = col
+            optionColor.textContent = col
+            colorSelect.appendChild(optionColor)
 
+            const filterDiv = document.createElement("div")
+            filterDiv.className = "filter-group"
+            const label = document.createElement("label")
+            label.textContent = `Filter ${col}`
+
+            const uniqueValues = [...new Set(data.map((row) => row[col]))]
             uniqueValues.forEach((value) => {
               const checkbox = document.createElement("input")
               checkbox.type = "checkbox"
               checkbox.checked = true
               checkbox.value = value
               checkbox.id = `filter-${col}-${value}`
+
               const checkboxLabel = document.createElement("label")
               checkboxLabel.textContent = value
-              checkboxDiv.appendChild(checkbox)
-              checkboxDiv.appendChild(checkboxLabel)
+
+              filterDiv.appendChild(checkbox)
+              filterDiv.appendChild(checkboxLabel)
 
               checkbox.addEventListener("change", updateFilteredData)
             })
-
-            controlsDiv.appendChild(checkboxDiv)
+            controlsDiv.appendChild(filterDiv)
           })
+
+          controlsDiv.appendChild(document.createTextNode("X-axis: "))
+          controlsDiv.appendChild(xSelect)
+          controlsDiv.appendChild(document.createTextNode(" Y-axis: "))
+          controlsDiv.appendChild(ySelect)
+          controlsDiv.appendChild(document.createTextNode(" Color by: "))
+          controlsDiv.appendChild(colorSelect)
 
           xSelect.addEventListener("change", updatePlot)
           ySelect.addEventListener("change", updatePlot)
@@ -355,38 +362,99 @@ published: true
         }
 
         function renderPlot(data, xCol, yCol, colorBy) {
-          const trace = {
-            x: data.map((row) => parseFloat(row[xCol]) || null),
-            y: data.map((row) => parseFloat(row[yCol]) || null),
-            mode: "markers",
-            type: "scatter",
-            marker: {
-              color:
-                colorBy !== "None"
-                  ? data.map((row) => {
-                      const val = row[colorBy]
-                      return isNaN(Number(val)) ? val : Number(val)
-                    })
-                  : null,
-              colorscale:
-                colorBy !== "None" && !isNaN(Number(data[0][colorBy]))
-                  ? "Viridis"
-                  : undefined,
-              showscale: colorBy !== "None",
-              colorbar: colorBy !== "None" ? { title: colorBy } : undefined,
-            },
+          const xData = data.map((row) => parseFloat(row[xCol]) || null)
+          const yData = data.map((row) => parseFloat(row[yCol]) || null)
+
+          let backgroundColors = []
+          legendDiv.innerHTML = ""
+
+          if (colorBy !== "None") {
+            const uniqueValues = Array.from(
+              new Set(data.map((row) => row[colorBy]))
+            )
+
+            if (isNaN(parseFloat(uniqueValues[0]))) {
+              const colorMap = {}
+              uniqueValues.forEach((val, idx) => {
+                colorMap[val] = `hsl(${
+                  (idx / uniqueValues.length) * 360
+                }, 70%, 50%)`
+                const legendItem = document.createElement("div")
+                legendItem.className = "legend-item"
+                const legendColor = document.createElement("div")
+                legendColor.className = "legend-color"
+                legendColor.style.backgroundColor = colorMap[val]
+                legendItem.appendChild(legendColor)
+                legendItem.appendChild(document.createTextNode(val))
+                legendDiv.appendChild(legendItem)
+              })
+              backgroundColors = data.map((row) => colorMap[row[colorBy]])
+            } else {
+              const min = Math.min(
+                ...data.map((row) => parseFloat(row[colorBy]))
+              )
+              const max = Math.max(
+                ...data.map((row) => parseFloat(row[colorBy]))
+              )
+              backgroundColors = data.map((row) => {
+                const normalized =
+                  (parseFloat(row[colorBy]) - min) / (max - min)
+                return `hsl(${(1 - normalized) * 240}, 70%, 50%)`
+              })
+
+              const gradientLegend = document.createElement("div")
+              gradientLegend.style.background = `linear-gradient(to right, hsl(240, 70%, 50%), hsl(0, 70%, 50%))`
+              gradientLegend.style.height = "20px"
+              gradientLegend.style.width = "100%"
+              gradientLegend.style.marginTop = "10px"
+              const legendLabelMin = document.createElement("span")
+              legendLabelMin.textContent = min
+              const legendLabelMax = document.createElement("span")
+              legendLabelMax.textContent = max
+              legendLabelMax.style.float = "right"
+              legendDiv.appendChild(legendLabelMin)
+              legendDiv.appendChild(legendLabelMax)
+              legendDiv.appendChild(gradientLegend)
+            }
+          } else {
+            backgroundColors = "rgba(75, 192, 192, 0.6)"
           }
 
-          const layout = {
-            title: "",
-            xaxis: { title: xCol },
-            yaxis: { title: yCol },
-            autosize: true,
-            height: 800, // Maintain aspect ratio
+          if (chartInstance) {
+            chartInstance.destroy()
           }
-          ensurePlotly(() => {
-            Plotly.newPlot("plot", [trace], layout)
-          });
+
+          chartInstance = new Chart(plotCanvas, {
+            type: "scatter",
+            data: {
+              datasets: [
+                {
+                  label: `${yCol} vs ${xCol}`,
+                  data: xData.map((x, i) => ({ x, y: yData[i] })),
+                  backgroundColor: backgroundColors,
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              scales: {
+                x: {
+                  type: "linear",
+                  position: "bottom",
+                  title: {
+                    display: true,
+                    text: xCol,
+                  },
+                },
+                y: {
+                  title: {
+                    display: true,
+                    text: yCol,
+                  },
+                },
+              },
+            },
+          })
         }
 
         function renderDataPreview(data) {
