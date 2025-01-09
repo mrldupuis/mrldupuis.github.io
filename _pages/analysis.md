@@ -164,7 +164,6 @@ published: true
                   )
 
                   setupControls(data, numericalCols, categoricalCols)
-                  renderDataPreview(data)
                 } catch (error) {
                   alert(`Error processing file: ${error.message}`)
                 }
@@ -413,8 +412,8 @@ published: true
               legendLabelMax.textContent = max
               legendLabelMax.style.float = "right"
               legendDiv.appendChild(legendLabelMin)
-              legendDiv.appendChild(legendLabelMax)
               legendDiv.appendChild(gradientLegend)
+              legendDiv.appendChild(legendLabelMax)
             }
           } else {
             backgroundColors = "rgba(75, 192, 192, 0.6)"
@@ -475,6 +474,7 @@ published: true
               .join("") +
             "</tbody></table>"
         }
+      renderDataPreview(data)
       })
     </script>
   </body>
