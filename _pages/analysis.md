@@ -288,8 +288,14 @@ published: true
             const label = document.createElement("label")
             label.textContent = `Filter ${col}`
 
+            const checkboxContainer = document.createElement("div")
+            checkboxContainer.className = "checkbox-container"
+
             const uniqueValues = [...new Set(data.map((row) => row[col]))]
             uniqueValues.forEach((value) => {
+              const checkboxItem = document.createElement("div")
+              checkboxItem.className = "checkbox-item"
+
               const checkbox = document.createElement("input")
               checkbox.type = "checkbox"
               checkbox.checked = true
@@ -298,12 +304,17 @@ published: true
 
               const checkboxLabel = document.createElement("label")
               checkboxLabel.textContent = value
+              checkboxLabel.setAttribute("for", checkbox.id)
 
-              filterDiv.appendChild(checkbox)
-              filterDiv.appendChild(checkboxLabel)
+              checkboxItem.appendChild(checkbox)
+              checkboxItem.appendChild(checkboxLabel)
+              checkboxContainer.appendChild(checkboxItem)
 
               checkbox.addEventListener("change", updateFilteredData)
             })
+
+            filterDiv.appendChild(label)
+            filterDiv.appendChild(checkboxContainer)
             controlsDiv.appendChild(filterDiv)
           })
 
@@ -406,17 +417,33 @@ published: true
               gradientLegend.style.height = "20px"
               gradientLegend.style.width = "100%"
               gradientLegend.style.marginTop = "10px"
+              gradientLegend.style.display = "flex"
+              gradientLegend.style.alignItems = "center"
+
               const legendLabelMin = document.createElement("span")
               legendLabelMin.textContent = min
+              legendLabelMin.style.fontWeight = "bold"
+              legendLabelMin.style.color = "white" // Set text color to white
+
               const legendLabelMax = document.createElement("span")
               legendLabelMax.textContent = max
-              legendLabelMax.style.float = "right"
-              legendDiv.appendChild(legendLabelMin)
+              legendLabelMax.style.fontWeight = "bold"
+              legendLabelMax.style.marginLeft = "auto"
+
+              gradientLegend.appendChild(legendLabelMin)
+              gradientLegend.appendChild(
+                document.createElement("div")
+              ).className = "gradient-bar"
+              gradientLegend.appendChild(legendLabelMax)
               legendDiv.appendChild(gradientLegend)
-              legendDiv.appendChild(legendLabelMax)
             }
           } else {
-            backgroundColors = "rgba(75, 192, 192, 0.6)"
+            const min = Math.min(...data.map((row) => parseFloat(row[colorBy])))
+            const max = Math.max(...data.map((row) => parseFloat(row[colorBy])))
+            backgroundColors = data.map((row) => {
+              const normalized = (parseFloat(row[colorBy]) - min) / (max - min)
+              return `hsl(${(1 - normalized) * 240}, 70%, 50%)`
+            })
           }
 
           if (chartInstance) {
@@ -428,6 +455,7 @@ published: true
             data: {
               datasets: [
                 {
+                  // label: false,
                   label: `${yCol} vs ${xCol}`,
                   data: xData.map((x, i) => ({ x, y: yData[i] })),
                   backgroundColor: backgroundColors,
@@ -436,6 +464,11 @@ published: true
             },
             options: {
               responsive: true,
+              plugins: {
+                legend: {
+                  display: false, // Disable the legend entirely if needed
+                },
+              },
               scales: {
                 x: {
                   type: "linear",
@@ -455,26 +488,6 @@ published: true
             },
           })
         }
-
-        function renderDataPreview(data) {
-          dataPreview.innerHTML =
-            "<table><thead><tr>" +
-            Object.keys(data[0])
-              .map((col) => `<th>${col}</th>`)
-              .join("") +
-            "</tr></thead><tbody>" +
-            data
-              .slice(0, 10)
-              .map(
-                (row) =>
-                  `<tr>${Object.values(row)
-                    .map((val) => `<td>${val}</td>`)
-                    .join("")}</tr>`
-              )
-              .join("") +
-            "</tbody></table>"
-        }
-      renderDataPreview(data)
       })
     </script>
   </body>
