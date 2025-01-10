@@ -17,6 +17,7 @@ published: true
       defer
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://d3js.org/d3.v7.min.js" defer></script>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -38,6 +39,19 @@ published: true
         margin: 10px;
         display: flex;
         flex-direction: column;
+      }
+      .checkbox-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 5px;
+      }
+      .checkbox-item {
+        display: flex;
+        align-items: center;
+      }
+      .checkbox-item label {
+        margin-left: 5px;
       }
       input[type="file"],
       select,
@@ -386,9 +400,7 @@ published: true
             if (isNaN(parseFloat(uniqueValues[0]))) {
               const colorMap = {}
               uniqueValues.forEach((val, idx) => {
-                colorMap[val] = `hsl(${
-                  (idx / uniqueValues.length) * 360
-                }, 70%, 50%)`
+                colorMap[val] = d3.interpolateViridis(idx / uniqueValues.length)
                 const legendItem = document.createElement("div")
                 legendItem.className = "legend-item"
                 const legendColor = document.createElement("div")
@@ -409,11 +421,12 @@ published: true
               backgroundColors = data.map((row) => {
                 const normalized =
                   (parseFloat(row[colorBy]) - min) / (max - min)
-                return `hsl(${(1 - normalized) * 240}, 70%, 50%)`
+                return d3.interpolateViridis(normalized) // Reversed for scatter points
               })
 
               const gradientLegend = document.createElement("div")
-              gradientLegend.style.background = `linear-gradient(to right, hsl(240, 70%, 50%), hsl(0, 70%, 50%))`
+              gradientLegend.style.background =
+                "linear-gradient(to right, #440154, #21918c, #fde725)"
               gradientLegend.style.height = "20px"
               gradientLegend.style.width = "100%"
               gradientLegend.style.marginTop = "10px"
@@ -429,11 +442,12 @@ published: true
               legendLabelMax.textContent = max
               legendLabelMax.style.fontWeight = "bold"
               legendLabelMax.style.marginLeft = "auto"
+              legendLabelMax.style.color = "black"
 
               gradientLegend.appendChild(legendLabelMin)
-              gradientLegend.appendChild(
-                document.createElement("div")
-              ).className = "gradient-bar"
+              const gradientBar = document.createElement("div")
+              gradientBar.style.flexGrow = "1"
+              gradientLegend.appendChild(gradientBar)
               gradientLegend.appendChild(legendLabelMax)
               legendDiv.appendChild(gradientLegend)
             }
@@ -442,7 +456,7 @@ published: true
             const max = Math.max(...data.map((row) => parseFloat(row[colorBy])))
             backgroundColors = data.map((row) => {
               const normalized = (parseFloat(row[colorBy]) - min) / (max - min)
-              return `hsl(${(1 - normalized) * 240}, 70%, 50%)`
+              return d3.interpolateViridis(normalized) // Reversed for scatter points
             })
           }
 
@@ -455,7 +469,6 @@ published: true
             data: {
               datasets: [
                 {
-                  // label: false,
                   label: `${yCol} vs ${xCol}`,
                   data: xData.map((x, i) => ({ x, y: yData[i] })),
                   backgroundColor: backgroundColors,
@@ -466,7 +479,7 @@ published: true
               responsive: true,
               plugins: {
                 legend: {
-                  display: false, // Disable the legend entirely if needed
+                  display: false,
                 },
               },
               scales: {
