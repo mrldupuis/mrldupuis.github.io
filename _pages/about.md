@@ -16,7 +16,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am an [Engineer based in California](https://geosyntec.com/people/michael-dupuis).
+I'm an [Engineer](https://geosyntec.com/people/michael-dupuis) and [Ph.D. Candidate](https://sites.google.com/site/brendonabradley/people?authuser=0).
 
 I primarily work on the seismic analysis and structural design of large concrete dams and buildings, but I also really enjoy software development and data analysis.
 
