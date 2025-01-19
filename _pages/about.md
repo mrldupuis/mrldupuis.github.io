@@ -20,6 +20,8 @@ I'm an Analyst, [Engineer](https://geosyntec.com/people/michael-dupuis) and [Ph.
 
 I specialize at developing custom in-house software packages and data pipelines to solve complex analytical problems.
 
-I primarily work on physics-based earthquake ground-motion simulation, quantitative risk analysis, and seismic structural analysis of large concrete dams and buildings.
+I've primarily work on physics-based earthquake ground-motion simulation, quantitative risk analysis, and seismic structural analysis of large concrete dams and buildings.
+
+I am driven to solve novel technical challenges, particularly those where leveraging data analytics can drive meaningful, measurable improvements.
 
 I've been fortunate to work on projects across Canada, Japan, Taiwan, New Zealand, and the United States.
