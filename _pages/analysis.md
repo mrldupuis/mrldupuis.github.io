@@ -469,8 +469,11 @@ published: true
             data: {
               datasets: [
                 {
-                  label: `${yCol} vs ${xCol}`,
-                  data: xData.map((x, i) => ({ x, y: yData[i] })),
+                  data: xData.map((x, i) => ({
+                    x,
+                    y: yData[i],
+                    c: data[i][colorBy]  // Ensure this line is included
+                  })),
                   backgroundColor: backgroundColors,
                 },
               ],
@@ -481,6 +484,16 @@ published: true
                 legend: {
                   display: false,
                 },
+                tooltip: {
+                  callbacks: {
+                    label: function(context) {
+                      const x = context.parsed.x;
+                      const y = context.parsed.y;
+                      const c = context.raw.c; // Access the custom 'c' value from your data point
+                      return `(${x}, ${y}, ${c})`;
+                    }
+                  }
+                }
               },
               scales: {
                 x: {
