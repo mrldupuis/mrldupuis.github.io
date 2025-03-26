@@ -5,9 +5,6 @@ nav: true
 nav_order: 8
 dropdown: true
 children:
-  - title: articles
-    permalink: /articles/
-  - title: divider
   - title: publications
     permalink: /publications/
   - title: divider
