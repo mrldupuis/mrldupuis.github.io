@@ -18,10 +18,8 @@ social: true # includes social icons at the bottom of the page
 
 I'm an Analyst, [Engineer](https://geosyntec.com/people/michael-dupuis) and [Ph.D. Candidate](https://sites.google.com/site/brendonabradley/people?authuser=0).
 
-I specialize at developing custom in-house software packages and data pipelines to solve complex analytical problems.
+I develop custom in-house software packages and data pipelines to solve complex analytical problems.
 
-I've primarily work on physics-based earthquake ground-motion simulation, quantitative risk analysis, and seismic structural analysis of large concrete dams and buildings.
+My work has focused on physics-based earthquake ground-motion simulation, design of reinforced concrete and steel structures, developing hazard compatible earthquake ground-motion time series, operational modal analysis of dams, and seismic structural analysis of large concrete dams and buildings.
 
-I am driven to solve novel technical challenges, particularly those where leveraging data analytics can drive meaningful, measurable improvements.
-
-I've been fortunate to work on projects across Canada, Japan, Taiwan, New Zealand, and the United States.
+I've worked in Canada, Japan, New Zealand, and the United States.
