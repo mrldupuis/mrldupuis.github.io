@@ -5,7 +5,7 @@ permalink: /projects/
 description: A selection of interesting projects related to dams, earthquakes, or vibrations.
 nav: true
 nav_order: 3
-display_categories: [presentations, software development]
+display_categories: [software development, presentations]
 horizontal: false
 ---
 
