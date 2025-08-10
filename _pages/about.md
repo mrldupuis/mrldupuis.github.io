@@ -5,7 +5,7 @@ permalink: /
 subtitle: <a href='#'></a>
 
 profile:
-  align: left
+  align: right
   image: prof_pic_2025.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
