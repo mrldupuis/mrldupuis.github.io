@@ -8,6 +8,13 @@ nav_order: 6
 published: true
 ---
 
+<!-- FULL-BLEED HERO (escapes the container) -->
+<div style="width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;">
+  <img src="/assets/img/athelney_elephant.jpg"
+       alt=""
+       style="display:block;width:100%;height:auto;margin:0;">
+</div>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
