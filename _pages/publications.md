@@ -9,6 +9,13 @@ nav_order: 2
 
 <!-- _pages/publications.md -->
 
+<!-- FULL-BLEED HERO (escapes the container) -->
+<div style="width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;">
+  <img src="/assets/img/glacial_panda.jpg"
+       alt=""
+       style="display:block;width:100%;height:auto;margin:0;">
+</div>
+
 <!-- Bibsearch Feature -->
 
 {% include bib_search.liquid %}
