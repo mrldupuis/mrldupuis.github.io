@@ -15,7 +15,7 @@ social: true            # keep social icons at the bottom
 
 <!-- FULL-BLEED HERO (escapes the container) -->
 <div style="width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;">
-  <img src="/assets/img/prof_pic_2025.jpg"
+  <img src="/assets/img/athelney.jpg"
        alt=""
        style="display:block;width:100%;height:auto;margin:0;">
 </div>
