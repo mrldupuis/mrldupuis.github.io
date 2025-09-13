@@ -1,19 +1,23 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: <a href='#'></a>
 
+# REMOVE the profile block so the circular headshot + sidebar doesn't render
+# (The layout checks if 'page.profile' exists/truthy.)
 profile:
-  align: right
-  image: prof_pic_2025.jpg
-  image_circular: true # crops the image to make it circular
-  more_info: >
-    <p></p>
 
-news: false # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+news: false
+selected_papers: true   # keep selected publications at the bottom
+social: true            # keep social icons at the bottom
 ---
 
-Welcome to my page.
+<!-- FULL-BLEED HERO (escapes the container) -->
+<div style="width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;">
+  <img src="/assets/img/athelney.jpg"
+       alt=""
+       style="display:block;width:100%;height:auto;margin:0;">
+</div>
+
+<!-- no body copy; the layout will still append Selected publications + Social -->
